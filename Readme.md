@@ -22,7 +22,7 @@ npm install
 npm start
 ```
 
-- Start socket client
+- Start socket client as another process
 
 ```
 npm run client
