@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Socket TESTER</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
 </head>
 
 <body>
@@ -11,6 +12,15 @@
     <h1>Hello World!</h1>
     <h2>Node Server is running</h2>
   </div>
+  <script>
+  io = io();
+  const socket = io.connect('http://localhost:3004');
+  socket.on('connect', () => console.log("socket connected"));
+  socket.on('feed', data => console.log('feed event listened \n', data));
+  socket.emit('message', {
+    text: 'Message from client to server'
+  });
+  </script>
 </body>
 
 </html>
